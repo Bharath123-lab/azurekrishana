@@ -1,0 +1,9 @@
+{
+	"name": "krishanadatafactory2",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "fcaf24d1-1046-4c4a-83a3-beaf034244d5",
+		"tenantId": "170ea15f-df32-41ac-8197-a6422330e625"
+	}
+}
