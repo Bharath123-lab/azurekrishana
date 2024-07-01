@@ -1,0 +1,11 @@
+{
+	"name": "AzureBlobStorage1magedidentity",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobStorage",
+		"typeProperties": {
+			"serviceEndpoint": "https://krishanastoarge.blob.core.windows.net/",
+			"accountKind": "StorageV2"
+		}
+	}
+}
