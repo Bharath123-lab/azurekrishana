@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"folderPath": "landing",
+				"fileName": "azure.csv",
+				"folderPath": "landing/level1",
 				"container": "labadf"
 			},
 			"columnDelimiter": ",",
