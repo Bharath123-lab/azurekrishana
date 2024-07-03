@@ -1,0 +1,107 @@
+{
+	"name": "my_first_pipeline1",
+	"properties": {
+		"activities": [
+			{
+				"name": "Lookup1",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "@concat('select * from dbo.emp where name = ',\n            '''',\n            pipeline().parameters.p_name,\n            '''')\n",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "AzureSqlTable1",
+						"type": "DatasetReference"
+					}
+				}
+			},
+			{
+				"name": "Set variable1",
+				"description": "",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "Lookup1",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "v_age",
+					"value": {
+						"value": "@string(sub(\n        int(formatDateTime(utcnow(),'yyyy')),\n        int(formatDateTime(activity('Lookup1').output.firstROW.\n        dob,'yyyy'))\n        )\n)",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Lookup2",
+				"type": "Lookup",
+				"dependsOn": [
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": {
+							"value": "@concat(\n    'update  dbo.emp set age = ',\n    variabvariables('v_age'),\n    ' where name = ',\n    '''',\n    pipeline().parameters.p_name,\n    '''';select 1\n\n)",
+							"type": "Expression"
+						},
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "AzureSqlTable1",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			}
+		],
+		"parameters": {
+			"p_name": {
+				"type": "string"
+			}
+		},
+		"variables": {
+			"v_age": {
+				"type": "Integer"
+			}
+		},
+		"annotations": []
+	}
+}
