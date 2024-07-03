@@ -20,13 +20,10 @@
 						"type": "DatasetReference"
 					},
 					"fieldList": [
-						"itemName",
-						"structure",
 						"columnCount"
 					],
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
-						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
