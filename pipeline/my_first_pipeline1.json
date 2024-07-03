@@ -85,7 +85,7 @@
 				"typeProperties": {
 					"variableName": "v_age",
 					"value": {
-						"value": "@string(sub(\n    int(formatDateTime(utcnow(),'yyyy')),\n    int(formatDateTime(activity('Lookup1').output))\n    )\n)",
+						"value": "@string(sub(\n    int(formatDateTime(utcNow(),'yyyy')),\n    int(formatDateTime(activity('Lookup1').output))\n    )\n)",
 						"type": "Expression"
 					}
 				}
@@ -98,7 +98,7 @@
 		},
 		"variables": {
 			"v_age": {
-				"type": "Integer"
+				"type": "String"
 			}
 		},
 		"annotations": []
