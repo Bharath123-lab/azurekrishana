@@ -162,7 +162,7 @@
 					"source": {
 						"type": "AzureSqlSource",
 						"sqlReaderQuery": {
-							"value": "@concat(\n    'select distinct value as filename\n    from string_split(''',\n    variables('v_files'),\n    ''',''|'') where trim(value) <>'''\n)",
+							"value": "@concat(\n    'select distinct value as filename from string_split(''',\n    variables('v_files'),\n    ''',''|'') where trim(value) <> '''''\n)",
 							"type": "Expression"
 						},
 						"queryTimeout": "02:00:00",
