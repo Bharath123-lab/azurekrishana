@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Lookup1",
+				"name": "get_file_metadat_config",
 				"type": "Lookup",
 				"dependsOn": [],
 				"policy": {
@@ -31,11 +31,11 @@
 				}
 			},
 			{
-				"name": "Get Metadata1",
+				"name": "get_all_files",
 				"type": "GetMetadata",
 				"dependsOn": [
 					{
-						"activity": "Lookup1",
+						"activity": "get_file_metadat_config",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -55,11 +55,11 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"filename": {
-								"value": "@activity('Lookup1').output.firstRow.file_name",
+								"value": "@activity('get_file_metadat_config').output.firstRow.file_name",
 								"type": "Expression"
 							},
 							"foldername": {
-								"value": "@activity('Lookup1').output.firstRow.folder_name",
+								"value": "@activity('get_file_metadat_config').outputfirstRow.folder_name",
 								"type": "Expression"
 							}
 						}
@@ -81,7 +81,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "Get Metadata1",
+						"activity": "get_all_files",
 						"dependencyConditions": [
 							"Completed"
 						]
@@ -173,6 +173,50 @@
 						"type": "DatasetReference"
 					},
 					"firstRowOnly": false
+				}
+			},
+			{
+				"name": "ForEach2",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Lookup2",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"activities": [
+						{
+							"name": "Get Metadata2",
+							"type": "GetMetadata",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"dataset": {
+									"referenceName": "DelimitedText1",
+									"type": "DatasetReference"
+								},
+								"fieldList": [],
+								"storeSettings": {
+									"type": "AzureBlobStorageReadSettings",
+									"enablePartitionDiscovery": false
+								},
+								"formatSettings": {
+									"type": "DelimitedTextReadSettings"
+								}
+							}
+						}
+					]
 				}
 			}
 		],
