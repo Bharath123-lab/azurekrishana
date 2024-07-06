@@ -183,7 +183,7 @@
 					{
 						"activity": "Lookup2",
 						"dependencyConditions": [
-							"Completed"
+							"Succeeded"
 						]
 					}
 				],
@@ -430,7 +430,8 @@
 		],
 		"parameters": {
 			"p_etl_job_name": {
-				"type": "String"
+				"type": "String",
+				"defaultValue": "load_emp_file"
 			}
 		},
 		"variables": {
