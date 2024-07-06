@@ -468,6 +468,10 @@
 					"storeSettings": {
 						"type": "AzureBlobStorageReadSettings",
 						"recursive": true,
+						"wildcardFileName": {
+							"value": "@activity('get_file_metadat_config').output.firstRow.file_name",
+							"type": "Expression"
+						},
 						"enablePartitionDiscovery": false
 					}
 				}
