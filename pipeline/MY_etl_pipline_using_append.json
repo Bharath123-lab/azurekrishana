@@ -82,7 +82,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "get_all_files",
+						"activity": "Filter1",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -419,6 +419,29 @@
 					"variableName": "va_distnict",
 					"value": {
 						"value": "@union(variables('va_files'),variables('va_files'))",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Filter1",
+				"type": "Filter",
+				"dependsOn": [
+					{
+						"activity": "get_all_files",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('get_all_files').output.childItems",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@not(endswith(item().name,'.txt'))",
 						"type": "Expression"
 					}
 				}
