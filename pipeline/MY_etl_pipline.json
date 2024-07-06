@@ -404,6 +404,26 @@
 											"variableName": "all_files_not",
 											"value": "false"
 										}
+									},
+									{
+										"name": "Fail1",
+										"type": "Fail",
+										"dependsOn": [
+											{
+												"activity": "files_not_present",
+												"dependencyConditions": [
+													"Succeeded"
+												]
+											}
+										],
+										"userProperties": [],
+										"typeProperties": {
+											"message": {
+												"value": "@concat('all the 4 files are not availble in the feed ', item().filename, '.csv')",
+												"type": "Expression"
+											},
+											"errorCode": "50001"
+										}
 									}
 								],
 								"ifTrueActivities": [
