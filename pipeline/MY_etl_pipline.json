@@ -297,7 +297,7 @@
 											"type": "Expression"
 										},
 										"foldername": {
-											"value": "@activity('get_file_metadat_config').output.firstRow.folder  ",
+											"value": "@activity('get_file_metadat_config').output.firstRow.folder_name",
 											"type": "Expression"
 										}
 									}
