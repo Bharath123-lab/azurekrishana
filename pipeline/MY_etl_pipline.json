@@ -84,7 +84,7 @@
 					{
 						"activity": "get_all_files",
 						"dependencyConditions": [
-							"Completed"
+							"Succeeded"
 						]
 					}
 				],
@@ -147,7 +147,7 @@
 					{
 						"activity": "ForEach1",
 						"dependencyConditions": [
-							"Completed"
+							"Succeeded"
 						]
 					}
 				],
