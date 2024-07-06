@@ -37,7 +37,7 @@
 					{
 						"activity": "get_file_metadat_config",
 						"dependencyConditions": [
-							"Completed"
+							"Succeeded"
 						]
 					}
 				],
