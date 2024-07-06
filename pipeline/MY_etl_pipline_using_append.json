@@ -136,6 +136,26 @@
 									"type": "Expression"
 								}
 							}
+						},
+						{
+							"name": "Append variable1",
+							"type": "AppendVariable",
+							"dependsOn": [
+								{
+									"activity": "Set variable2",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "va_files",
+								"value": {
+									"value": "@substring(item().name,0,indexOf(item().name,'.'))",
+									"type": "Expression"
+								}
+							}
 						}
 					]
 				}
@@ -482,6 +502,12 @@
 			},
 			"all_files_not": {
 				"type": "String"
+			},
+			"va_files": {
+				"type": "Array"
+			},
+			"va_temp": {
+				"type": "Array"
 			}
 		},
 		"annotations": []
