@@ -149,7 +149,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"filename": {
-											"value": "@concat(item().filename,'.csv')",
+											"value": "@concat(item(),'.csv')",
 											"type": "Expression"
 										},
 										"foldername": {
@@ -189,7 +189,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"filename": {
-											"value": "@concat(item().filename,'.csv.fin')",
+											"value": "@concat(item(),'.csv.fin')",
 											"type": "Expression"
 										},
 										"foldername": {
@@ -229,7 +229,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"filename": {
-											"value": "@concat(item().filename,'.ctl')",
+											"value": "@concat(item(),'.ctl')",
 											"type": "Expression"
 										},
 										"foldername": {
@@ -269,7 +269,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"filename": {
-											"value": "@concat(item().filename,'.ctl.fin')",
+											"value": "@concat(item(),'.ctl.fin')",
 											"type": "Expression"
 										},
 										"foldername": {
