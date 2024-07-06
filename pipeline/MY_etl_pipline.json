@@ -221,7 +221,9 @@
 										}
 									}
 								},
-								"fieldList": [],
+								"fieldList": [
+									"childItems"
+								],
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
 									"enablePartitionDiscovery": false
@@ -258,7 +260,9 @@
 										}
 									}
 								},
-								"fieldList": [],
+								"fieldList": [
+									"childItems"
+								],
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
 									"enablePartitionDiscovery": false
@@ -295,7 +299,9 @@
 										}
 									}
 								},
-								"fieldList": [],
+								"fieldList": [
+									"childItems"
+								],
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
 									"enablePartitionDiscovery": false
@@ -332,7 +338,9 @@
 										}
 									}
 								},
-								"fieldList": [],
+								"fieldList": [
+									"childItems"
+								],
 								"storeSettings": {
 									"type": "AzureBlobStorageReadSettings",
 									"enablePartitionDiscovery": false
@@ -376,7 +384,39 @@
 								"expression": {
 									"value": "@and(\n    and(\n        and(\n            equals(activity('Metadata5ctlfin').output.exists,true),\n             equals(activity('Metadata4ctl').output.exists,true)\n            ),\n        equals(activity('Metadata3csvfin').output.exists,true)\n        ),\n    equals(activity('Metadata2csv').output.exists, true)\n)",
 									"type": "Expression"
-								}
+								},
+								"ifFalseActivities": [
+									{
+										"name": "files_not_present",
+										"type": "SetVariable",
+										"dependsOn": [],
+										"policy": {
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"variableName": "all_files_not",
+											"value": "false"
+										}
+									}
+								],
+								"ifTrueActivities": [
+									{
+										"name": "all_files_yes",
+										"type": "SetVariable",
+										"dependsOn": [],
+										"policy": {
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"variableName": "all_files",
+											"value": "true"
+										}
+									}
+								]
 							}
 						}
 					]
@@ -393,6 +433,12 @@
 				"type": "String"
 			},
 			"v_tempfiles": {
+				"type": "String"
+			},
+			"all_files": {
+				"type": "String"
+			},
+			"all_files_not": {
 				"type": "String"
 			}
 		},
