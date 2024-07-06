@@ -165,7 +165,7 @@
 				"type": "Lookup",
 				"dependsOn": [
 					{
-						"activity": "ForEach1",
+						"activity": "Set variable3",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -481,6 +481,29 @@
 				"userProperties": [],
 				"typeProperties": {
 					"waitTimeInSeconds": 2
+				}
+			},
+			{
+				"name": "Set variable3",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "ForEach1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "va_temp",
+					"value": [
+						""
+					]
 				}
 			}
 		],
