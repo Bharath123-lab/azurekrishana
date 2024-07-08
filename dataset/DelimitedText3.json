@@ -14,7 +14,7 @@
 				"folderPath": "landing/level1",
 				"fileSystem": "labadf"
 			},
-			"columnDelimiter": "|",
+			"columnDelimiter": ",",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
