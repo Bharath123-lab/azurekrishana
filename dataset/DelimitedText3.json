@@ -10,7 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "output",
+				"fileName": "emp_20241106.txt",
+				"folderPath": "landing/level1",
 				"fileSystem": "labadf"
 			},
 			"columnDelimiter": "|",
