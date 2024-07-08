@@ -13,8 +13,7 @@
 				"folderPath": "output",
 				"fileSystem": "labadf"
 			},
-			"columnDelimiter": "No delimiter",
-			"rowDelimiter": "|",
+			"columnDelimiter": "|",
 			"escapeChar": "\\",
 			"firstRowAsHeader": true,
 			"quoteChar": "\""
