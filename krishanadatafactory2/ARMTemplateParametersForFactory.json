@@ -8,6 +8,9 @@
 		"directaccountAzureBlobStorage1_connectionString": {
 			"value": ""
 		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
 		"AzureBlobStorage1bysasmethod_sasUri": {
 			"value": ""
 		},
@@ -22,6 +25,9 @@
 		},
 		"AzureSqlDatabase1_properties_typeProperties_database": {
 			"value": "RAMADB"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://krishanastoarge.dfs.core.windows.net/"
 		}
 	}
 }
