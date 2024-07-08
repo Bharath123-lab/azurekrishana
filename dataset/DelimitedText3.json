@@ -11,7 +11,7 @@
 			"location": {
 				"type": "AzureBlobFSLocation",
 				"fileName": "Book1.txt",
-				"folderPath": "landing/level1",
+				"folderPath": "input/levle1",
 				"fileSystem": "labadf"
 			},
 			"columnDelimiter": ",",
