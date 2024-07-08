@@ -7,13 +7,13 @@
 			"metadata": "Data Factory name",
 			"defaultValue": "krishanadatafactory2"
 		},
-		"directaccountAzureBlobStorage1_connectionString": {
-			"type": "secureString",
-			"metadata": "Secure string for 'connectionString' of 'directaccountAzureBlobStorage1'"
-		},
 		"AzureDataLakeStorage1_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"directaccountAzureBlobStorage1_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'directaccountAzureBlobStorage1'"
 		},
 		"AzureBlobStorage1bysasmethod_sasUri": {
 			"type": "secureString",
@@ -22,6 +22,10 @@
 		"AzureBlobStorage1magedidentity_properties_typeProperties_serviceEndpoint": {
 			"type": "string",
 			"defaultValue": "https://krishanastoarge.blob.core.windows.net/"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://krishanastoarge.dfs.core.windows.net/"
 		},
 		"AzureKeyVault1_properties_typeProperties_baseUrl": {
 			"type": "string",
@@ -35,9 +39,9 @@
 			"type": "string",
 			"defaultValue": "RAMADB"
 		},
-		"AzureDataLakeStorage1_properties_typeProperties_url": {
+		"RestService1_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://krishanastoarge.dfs.core.windows.net/"
+			"defaultValue": "https://cat-fact.herokuapp.com/facts"
 		},
 		"containerUri": {
 			"type": "string",
@@ -66,17 +70,20 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"directaccountAzureBlobStorage1_connectionString": {
-						"value": "[parameters('directaccountAzureBlobStorage1_connectionString')]"
-					},
 					"AzureDataLakeStorage1_accountKey": {
 						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"directaccountAzureBlobStorage1_connectionString": {
+						"value": "[parameters('directaccountAzureBlobStorage1_connectionString')]"
 					},
 					"AzureBlobStorage1bysasmethod_sasUri": {
 						"value": "[parameters('AzureBlobStorage1bysasmethod_sasUri')]"
 					},
 					"AzureBlobStorage1magedidentity_properties_typeProperties_serviceEndpoint": {
 						"value": "[parameters('AzureBlobStorage1magedidentity_properties_typeProperties_serviceEndpoint')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
 					},
 					"AzureKeyVault1_properties_typeProperties_baseUrl": {
 						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
@@ -87,12 +94,32 @@
 					"AzureSqlDatabase1_properties_typeProperties_database": {
 						"value": "[parameters('AzureSqlDatabase1_properties_typeProperties_database')]"
 					},
-					"AzureDataLakeStorage1_properties_typeProperties_url": {
-						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					"RestService1_properties_typeProperties_url": {
+						"value": "[parameters('RestService1_properties_typeProperties_url')]"
 					}
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "krishanadatafactory2_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'krishanadatafactory2_ArmTemplate_0')]"
+			]
 		}
 	]
 }

@@ -5,10 +5,10 @@
 		"factoryName": {
 			"value": "krishanadatafactory2"
 		},
-		"directaccountAzureBlobStorage1_connectionString": {
+		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
-		"AzureDataLakeStorage1_accountKey": {
+		"directaccountAzureBlobStorage1_connectionString": {
 			"value": ""
 		},
 		"AzureBlobStorage1bysasmethod_sasUri": {
@@ -16,6 +16,9 @@
 		},
 		"AzureBlobStorage1magedidentity_properties_typeProperties_serviceEndpoint": {
 			"value": "https://krishanastoarge.blob.core.windows.net/"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://krishanastoarge.dfs.core.windows.net/"
 		},
 		"AzureKeyVault1_properties_typeProperties_baseUrl": {
 			"value": "https://valutaccesskey.vault.azure.net/"
@@ -26,8 +29,8 @@
 		"AzureSqlDatabase1_properties_typeProperties_database": {
 			"value": "RAMADB"
 		},
-		"AzureDataLakeStorage1_properties_typeProperties_url": {
-			"value": "https://krishanastoarge.dfs.core.windows.net/"
+		"RestService1_properties_typeProperties_url": {
+			"value": "https://cat-fact.herokuapp.com/facts"
 		},
 		"containerUri": {
 			"value": ""
