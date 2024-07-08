@@ -43,8 +43,11 @@
 						"type": "DelimitedTextSource",
 						"additionalColumns": [
 							{
-								"name": "",
-								"value": ""
+								"name": "json_recod",
+								"value": {
+									"value": "@string(activity('Web1').output)",
+									"type": "Expression"
+								}
 							}
 						],
 						"storeSettings": {
@@ -71,6 +74,30 @@
 					"enableStaging": false,
 					"translator": {
 						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"type": "String",
+									"ordinal": 1
+								},
+								"sink": {
+									"name": "Column1",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "json_recod",
+									"type": "String"
+								},
+								"sink": {
+									"name": "Column2",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
 						"typeConversion": true,
 						"typeConversionSettings": {
 							"allowDataTruncation": true,
