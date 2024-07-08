@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "restapi.txt",
+				"fileName": "dummy.txt",
 				"folderPath": "input",
 				"container": "labadf"
 			},
