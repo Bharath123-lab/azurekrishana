@@ -1,5 +1,13 @@
 {
 	"name": "krishanadatafactory2",
+	"properties": {
+		"globalParameters": {
+			"linkedservice": {
+				"type": "string",
+				"value": "https://krishanastoarge.blob.core.windows.net/"
+			}
+		}
+	},
 	"location": "eastus",
 	"identity": {
 		"type": "SystemAssigned",
