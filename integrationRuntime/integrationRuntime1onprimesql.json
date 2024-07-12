@@ -1,0 +1,6 @@
+{
+	"name": "integrationRuntime1onprimesql",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
