@@ -1,1 +1,6 @@
-{}
+{
+	"linkedservice": {
+		"type": "string",
+		"value": "https://krishanastoarge.blob.core.windows.net/"
+	}
+}

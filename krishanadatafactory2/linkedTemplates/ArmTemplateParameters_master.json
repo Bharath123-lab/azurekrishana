@@ -5,6 +5,9 @@
 		"factoryName": {
 			"value": "krishanadatafactory2"
 		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
 		"AzureDataLakeStorage1_accountKey": {
 			"value": ""
 		},
