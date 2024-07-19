@@ -73,11 +73,11 @@
 		"variables": {
 			"sourcerl": {
 				"type": "String",
-				"defaultValue": "https://opendata.ecdc.europa.eu"
+				"defaultValue": "https://opendata.ecdc.europa.eu/"
 			},
 			"basurl": {
 				"type": "String",
-				"defaultValue": "/covid19/testing/csv/data.csv"
+				"defaultValue": "covid19/testing/csv/data.csv"
 			}
 		},
 		"annotations": []
