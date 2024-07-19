@@ -48,11 +48,15 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "httpparamter",
+						"referenceName": "DelimitedText5",
 						"type": "DatasetReference",
 						"parameters": {
-							"relativeurl": {
+							"realtiveurl": {
 								"value": "@pipeline().parameters.relativeurl",
+								"type": "Expression"
+							},
+							"baseurl": {
+								"value": "@pipeline().parameters.sourceurl",
 								"type": "Expression"
 							}
 						}
@@ -68,6 +72,9 @@
 		],
 		"parameters": {
 			"relativeurl": {
+				"type": "string"
+			},
+			"sourceurl": {
 				"type": "string"
 			}
 		},
