@@ -1,0 +1,17 @@
+{
+	"name": "HttpServerparamtersrequest",
+	"properties": {
+		"parameters": {
+			"base": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "@{linkedService().base}",
+			"enableServerCertificateValidation": false,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
