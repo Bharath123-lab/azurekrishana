@@ -19,6 +19,18 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'connectionString' of 'directaccountAzureBlobStorage1'"
 		},
+		"azurekeyreport_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'azurekeyreport'"
+		},
+		"coviddatalakeStorage2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'coviddatalakeStorage2'"
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage2'"
+		},
 		"AzureBlobStorage1bysasmethod_sasUri": {
 			"type": "secureString",
 			"metadata": "Secure string for 'sasUri' of 'AzureBlobStorage1bysasmethod'"
@@ -46,6 +58,14 @@
 		"RestService1_properties_typeProperties_url": {
 			"type": "string",
 			"defaultValue": "https://cat-fact.herokuapp.com/facts"
+		},
+		"coviddatalakeStorage2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://covidreportingdl99.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://covidreportingdl99.dfs.core.windows.net/"
 		},
 		"containerUri": {
 			"type": "string",
@@ -83,6 +103,15 @@
 					"directaccountAzureBlobStorage1_connectionString": {
 						"value": "[parameters('directaccountAzureBlobStorage1_connectionString')]"
 					},
+					"azurekeyreport_connectionString": {
+						"value": "[parameters('azurekeyreport_connectionString')]"
+					},
+					"coviddatalakeStorage2_accountKey": {
+						"value": "[parameters('coviddatalakeStorage2_accountKey')]"
+					},
+					"AzureDataLakeStorage2_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage2_accountKey')]"
+					},
 					"AzureBlobStorage1bysasmethod_sasUri": {
 						"value": "[parameters('AzureBlobStorage1bysasmethod_sasUri')]"
 					},
@@ -103,6 +132,12 @@
 					},
 					"RestService1_properties_typeProperties_url": {
 						"value": "[parameters('RestService1_properties_typeProperties_url')]"
+					},
+					"coviddatalakeStorage2_properties_typeProperties_url": {
+						"value": "[parameters('coviddatalakeStorage2_properties_typeProperties_url')]"
+					},
+					"AzureDataLakeStorage2_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage2_properties_typeProperties_url')]"
 					}
 				}
 			},
