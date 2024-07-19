@@ -14,11 +14,11 @@
 		"parameters": {
 			"relative": {
 				"type": "string",
-				"defaultValue": "https://opendata.ecdc.europa.eu"
+				"defaultValue": "https://github.com/"
 			},
 			"source": {
 				"type": "string",
-				"defaultValue": "covid19/testing/csv/data.csv"
+				"defaultValue": "cloudboxacademy/covid19/raw/main/ecdc_data/hostpital_admissions.csv"
 			}
 		},
 		"annotations": [],
