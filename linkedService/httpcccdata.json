@@ -1,0 +1,12 @@
+{
+	"name": "httpcccdata",
+	"properties": {
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://opendata.ecdc.europa.eu/covid19/testing/csv/data.csv",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
