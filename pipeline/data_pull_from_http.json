@@ -48,15 +48,15 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "pameters",
+						"referenceName": "paramtersdatahttp",
 						"type": "DatasetReference",
 						"parameters": {
-							"relative": {
-								"value": "@pipeline().globalParameters.linkedservice",
+							"source": {
+								"value": "@variables('sourcerl')",
 								"type": "Expression"
 							},
-							"source": {
-								"value": "@pipeline().globalParameters.linkedservice",
+							"base": {
+								"value": "@variables('basurl')",
 								"type": "Expression"
 							}
 						}
@@ -70,6 +70,16 @@
 				]
 			}
 		],
+		"variables": {
+			"sourcerl": {
+				"type": "String",
+				"defaultValue": "https://opendata.ecdc.europa.eu"
+			},
+			"basurl": {
+				"type": "String",
+				"defaultValue": "/covid19/testing/csv/data.csv"
+			}
+		},
 		"annotations": []
 	}
 }
