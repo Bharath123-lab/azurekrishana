@@ -10,6 +10,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "sourcefromblob"
+				},
+				{
+					"dataset": {
+						"referenceName": "lookupdataset",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
 				}
 			],
 			"sinks": [],
@@ -19,6 +26,12 @@
 				},
 				{
 					"name": "select1"
+				},
+				{
+					"name": "pivot1"
+				},
+				{
+					"name": "lookup1"
 				}
 			],
 			"scriptLines": [
@@ -36,6 +49,16 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> sourcefromblob",
+				"source(output(",
+				"          country as string,",
+				"          country_code_2_digit as string,",
+				"          country_code_3_digit as string,",
+				"          continent as string,",
+				"          population as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
 				"sourcefromblob filter(continent == 'Europe' && not(isNull(country_code))) ~> europedatafilter1",
 				"europedatafilter1 select(mapColumn(",
 				"          country,",
@@ -47,7 +70,21 @@
 				"          source",
 				"     ),",
 				"     skipDuplicateMapInputs: false,",
-				"     skipDuplicateMapOutputs: false) ~> select1"
+				"     skipDuplicateMapOutputs: false) ~> select1",
+				"select1 pivot(groupBy(country,",
+				"          country_code,",
+				"          population,",
+				"          daily_count,",
+				"          reported_date,",
+				"          source),",
+				"     pivotBy(indicator, ['confirmed cases', 'deaths']),",
+				"     count = sum(daily_count),",
+				"     columnNaming: '$V$N',",
+				"     lateral: true) ~> pivot1",
+				"pivot1, source1 lookup(pivot1@country == source1@country,",
+				"     multiple: false,",
+				"     pickup: 'any',",
+				"     broadcast: 'auto')~> lookup1"
 			]
 		}
 	}
