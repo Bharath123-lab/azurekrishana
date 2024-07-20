@@ -1,0 +1,54 @@
+{
+	"name": "df_tranform_cases",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "dataflow_data_set",
+						"type": "DatasetReference"
+					},
+					"name": "sourcefromblob"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "europedatafilter1"
+				},
+				{
+					"name": "select1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          country as string,",
+				"          country_code as string,",
+				"          continent as string,",
+				"          population as integer,",
+				"          indicator as string,",
+				"          daily_count as short,",
+				"          date as date,",
+				"          rate_14_day as double,",
+				"          source as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> sourcefromblob",
+				"sourcefromblob filter(continent == 'Europe' && not(isNull(country_code))) ~> europedatafilter1",
+				"europedatafilter1 select(mapColumn(",
+				"          country,",
+				"          country_code,",
+				"          population,",
+				"          indicator,",
+				"          daily_count,",
+				"          reported_date = date,",
+				"          source",
+				"     ),",
+				"     skipDuplicateMapInputs: false,",
+				"     skipDuplicateMapOutputs: false) ~> select1"
+			]
+		}
+	}
+}
