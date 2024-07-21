@@ -150,7 +150,6 @@
 				"join1 pivot(groupBy(country,",
 				"          reported_year_week,",
 				"          reported_date,",
-				"          reported_year_week,",
 				"          value,",
 				"          country_code_2_digit,",
 				"          population,",
